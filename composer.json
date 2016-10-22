@@ -1,0 +1,19 @@
+{
+    "name": "linq/php-linq",
+    "description": "the fast and modern library for easy data manipulation",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Milan Gallas",
+            "email": "gallas@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Linq\\": "linq"
+      }
+    }
+}
