@@ -7,6 +7,12 @@
 	 * Time: 21:16
 	 */
 	namespace Linq\Helper;
+
+	/**
+	 * Class JoinHelper
+	 *
+	 * @package Linq\Helper
+	 */
 	class JoinHelper implements IJoinHelper
 	{
 		/** @var Array */

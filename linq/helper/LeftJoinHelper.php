@@ -8,7 +8,11 @@
 
 	namespace Linq\Helper;
 
-
+	/**
+	 * Class LeftJoinHelper
+	 *
+	 * @package Linq\Helper
+	 */
 	class LeftJoinHelper extends JoinHelper
 	{
 		/** @var boolean */
