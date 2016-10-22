@@ -62,7 +62,7 @@
 		}
 
 		/**
-		 * get first item from collection
+		 * return first item from collection
 		 *
 		 * @return mixed
 		 */
@@ -72,7 +72,7 @@
 		}
 
 		/**
-		 * get last item from collection
+		 * return last item from collection
 		 *
 		 * @return mixed
 		 */
@@ -82,7 +82,7 @@
 		}
 
 		/**
-		 * get result. You can use callable as first param
+		 * return result. You can use callable as first param
 		 *
 		 * @param $key       - name of key || callable
 		 * @param null $key2 - ame of value. You can use as fetchPairs in dibi
@@ -140,7 +140,7 @@
 		}
 
 		/**
-		 * get collection´s length
+		 * return collection´s length
 		 *
 		 * @return int
 		 */
@@ -150,7 +150,7 @@
 		}
 
 		/**
-		 * get first x items || get interval
+		 * return first x items || return interval
 		 * @example take(10, 20) -> BETWEEN 11 AND 21 (in sql language)
 		 *
 		 * @param $offset
@@ -167,7 +167,7 @@
 		}
 
 		/**
-		 * skip n items a and return other data
+		 * skip x items a and return other data
 		 *
 		 * @param $offset
 		 * @return Zdroj
@@ -187,7 +187,7 @@
 		}
 
 		/**
-		 * use data filter
+		 * returns only elements that match a given condition
 		 *
 		 * @param $condition callable
 		 * @return $this
@@ -246,7 +246,7 @@
 		}
 
 		/**
-		 * get unique items
+		 * return unique items
 		 *
 		 * @return $this
 		 */
@@ -272,7 +272,7 @@
 
 
 		/**
-		 * join 2 sources
+		 * union in sql
 		 *
 		 * @param $array
 		 * @return $this
@@ -347,7 +347,7 @@
 		}
 
 		/**
-		 * Vypíše pouze prvky které se s pojí v obou polích
+		 * return only elements that combine both fields
 		 *
 		 * @param $array
 		 * @return $this
@@ -361,7 +361,7 @@
 		}
 
 		/**
-		 * left join, znamená že se vypíši i ty prvky z původního pole, které se s druhým polem nespojili
+		 * the first collection will list all entries, even those which do not connect with other collections
 		 *
 		 * @param $array
 		 * @return $this
@@ -375,7 +375,7 @@
 		}
 
 		/**
-		 * Podmínka spojení dvou polí
+		 * Condition for join two collections
 		 *
 		 * @param $condition
 		 * @return $this
@@ -395,7 +395,7 @@
 		}
 
 		/**
-		 * Přijímá pole hodnot, kterých prvky musí nabívat
+		 * Accepts an array of values which elements must acquire
 		 *
 		 * @param type $filter
 		 * @return $this
@@ -419,7 +419,7 @@
 		}
 
 		/**
-		 * Přijímá pole hodnot, kterých prvky musí nabívat
+		 * negation of "in" method
 		 *
 		 * @param type $filter
 		 * @return $this
@@ -443,10 +443,10 @@
 		}
 
 		/**
-		 * Metoda filtruje pouze podle klíčů
+		 * filtering data by key
 		 *
 		 * @param type $keys
-		 * @return \services\Collection\linq\Linq
+		 * @return $this
 		 */
 		public function onlyKeys($keys)
 		{
