@@ -1,6 +1,11 @@
 # php-linq
 Linq technology in php language.
 
+### Install
+```php
+composer require linq/php-linq ~1.0
+```
+
 ### class Linq
 Base class that performs queries over the collections of objects and over the array.
 
@@ -50,6 +55,8 @@ protected $sports = array(
 
 **example of use**
 ```php
+require 'vendor/autoload.php';
+
 //init base linq class
 $linq = \Linq\LinqFactory::createLinq();
 
