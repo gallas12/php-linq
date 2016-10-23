@@ -39,4 +39,15 @@
             return self::$linqs["jsonLinq"];
         }
 
+        /**
+         * return XmlLinq object
+         * @return XmlLinq
+         */
+        public static function createXmlLinq()
+        {
+            if(!isset(self::$linqs["xmlLinq"])){
+                self::$linqs["xmlLinq"] = new XmlLinq( new JoinFactory() );
+            }
+            return self::$linqs["xmlLinq"];
+        }
     }
