@@ -123,3 +123,131 @@ $linq = \Linq\LinqFactory::createJsonLinq();
 			})
 	);
 ```
+
+
+### class XmlLinq
+The class takes data source in JSON format. Returns array.
+
+> The "from" method accept string or SimpleXmlElement.
+> If out choose xml in string, so you will work with array.
+> If you choose xml in SimlpeXmlElement object, so you will work with collection of std objects.
+
+
+**testing data**
+```php
+$sportXml =
+'<sports>
+     <sport>
+         <userName>Milan</userName>
+         <sport>šachy</sport>
+         <active>true</active>
+     </sport>
+     <sport>
+         <userName>Milan</userName>
+         <sport>karate</sport>
+         <active>false</active>
+     </sport>
+         <sport>
+         <userName>Milan</userName>
+         <sport>hokej</sport>
+         <active>true</active>
+         </sport>
+     <sport>
+         <userName>Honza</userName>
+         <sport>box</sport>
+         <active>true</active>
+     </sport>
+     <sport>
+         <userName>Honza</userName>
+         <sport>fotbal</sport>
+         <active>false</active>
+     </sport>
+     <sport>
+         <userName>Petr</userName>
+         <sport>tenis</sport>
+         <active>true</active>
+     </sport>
+</sports>';
+
+//users
+$userXml = '
+<students>
+     <student>
+         <name>Milan</name>
+         <surname>Gallas</surname>
+         <age>20</age>
+         <Job>php Programátor</Job>
+     </student>
+     <student>
+         <name>Amdrea</name>
+         <surname>Novotná</surname>
+         <age>17</age>
+         <Job>Java Programátor</Job>
+     </student>
+     <student>
+         <name>Honza</name>
+         <surname>Pulkert</surname>
+         <age>27</age>
+         <Job>c# Programátor</Job>
+     </student>
+     <student>
+         <name>Nikola</name>
+         <surname>Světnická</surname>
+         <age>23</age>
+         <Job>php Programátor</Job>
+     </student>
+     <student>
+         <name>Nikola</name>
+         <surname>Světnická</surname>
+         <age>23</age>
+         <Job>php Programátor</Job>
+     </student>
+     <student>
+         <name>Petr</name>
+         <surname>Grůdl</surname>
+         <age>31</age>
+         <Job>Java Programátor</Job>
+     </student>
+</students>
+	';
+```
+
+
+**example of use**
+```php
+    //first example. Source is string
+	echo '<pre>';
+	var_dump(
+		\Linq\LinqFactory::createXmlLinq()
+			->from($userXml)
+			->leftJoin($sportXml)
+			->on(function($user, $sport){
+				return ($user["name"] == $sport["userName"]);
+			})
+			->select()
+	);
+
+
+	//second example group by and reverse - source is string
+	echo "<pre>";
+	var_dump(
+		\Linq\LinqFactory::createXmlLinq()->from($userXml)->groupBy("Job", "name")->reverse()->select();
+	);
+	echo "</pre>";
+
+
+
+	//third examlple - source is simpleXmlElement. use condition on collection of objects and sort by orderBy function descending
+	$xmlElemetn = new SimpleXMLElement($userXml);
+	echo '<pre>';
+	var_dump(
+		\Linq\LinqFactory::createXmlLinq()
+			->from($xmlElemetn)
+			->where(function($user){
+				return (strlen($user->name) > 5);
+			})
+			->orderBy("age", true)
+			->select()
+	);
+
+```

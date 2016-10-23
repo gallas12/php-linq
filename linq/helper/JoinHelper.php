@@ -73,7 +73,7 @@
 		 */
 		protected function tryMergeSources($condition, $source, $secondarySource)
 		{
-			if (call_user_func_array($condition, array($source, $secondarySource))) {
+ 			if (call_user_func_array($condition, array($source, $secondarySource))) {
 				$this->mergeSources($source, $secondarySource);
 			}
 		}
